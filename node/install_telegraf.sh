@@ -41,11 +41,11 @@ sudo tee /etc/telegraf/telegraf.conf > /dev/null <<EOF
   collect_cpu_time = false
   report_active = false
 
+
 [[inputs.mem]]
 [[inputs.disk]]
 [[inputs.net]]
 [[inputs.processes]]
-
 [[inputs.system]]
   fielddrop = ["uptime_format"]
 
@@ -58,6 +58,12 @@ sudo tee /etc/telegraf/telegraf.conf > /dev/null <<EOF
   docker_label_include = []
   docker_label_exclude = []
   tagexclude = ["cpu"]
+  
+[[inputs.diskio]]
+  devices = ["sda", "sdb", "vda"] # List your device names here
+  skip_serial_number = false
+
+[[inputs.swap]]
 EOF
 
 # Enable and start Telegraf service
