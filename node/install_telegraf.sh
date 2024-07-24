@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Variables
-INFLUXDB_URL="http://223.130.130.104:8086"
+INFLUXDB_URL="http://<master node ip>:8086"
 DATABASE="telegraf"
 USERNAME="telegraf_user"
 PASSWORD="telegraf_password"
