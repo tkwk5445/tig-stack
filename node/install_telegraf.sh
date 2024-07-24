@@ -51,7 +51,13 @@ sudo tee /etc/telegraf/telegraf.conf > /dev/null <<EOF
 
 [[inputs.docker]]
   endpoint = "unix:///var/run/docker.sock"
-  gather_services = true
+  container_names = []
+  timeout = "5s"
+  perdevice = true
+  total = false
+  docker_label_include = []
+  docker_label_exclude = []
+  tagexclude = ["cpu"]
 EOF
 
 # Enable and start Telegraf service
